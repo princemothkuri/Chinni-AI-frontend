@@ -9,7 +9,7 @@ import { Card } from "@/components/ui/card";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store";
 import axios from "axios";
-import MarkdownRenderer from "../markdown/markDownRenderer";
+import MarkdownRenderer from "../markdown/MarkdownRendererWithCodeHandling ";
 
 interface Message {
   isUser: boolean;
@@ -97,16 +97,14 @@ export function InteractiveDemo() {
                   {chatHistory.map((chat, index) => (
                     <div
                       key={index}
-                      className={`flex ${
-                        chat.isUser ? "justify-end" : "justify-start"
-                      }`}
+                      className={`flex ${chat.isUser ? "justify-end" : "justify-start"
+                        }`}
                     >
                       <div
-                        className={`p-3 rounded-lg ${
-                          chat.isUser
+                        className={`p-3 rounded-lg ${chat.isUser
                             ? "bg-primary text-primary-foreground"
                             : "bg-secondary text-secondary-foreground"
-                        } max-w-xs`}
+                          } max-w-xs`}
                       >
                         <MarkdownRenderer content={chat.message} />
                       </div>
