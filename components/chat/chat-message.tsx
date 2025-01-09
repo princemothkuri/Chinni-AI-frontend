@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { Message } from "@/lib/types";
 import { Brain } from "lucide-react";
-import MarkdownRenderer from "../markdown/markDownRenderer";
+import MarkdownRenderer from "../markdown/MarkdownRendererWithCodeHandling ";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store";
 
@@ -55,14 +55,14 @@ export function ChatMessage({ message }: ChatMessageProps) {
         /> */}
         <MarkdownRenderer
           content={message.content}
-          // className={cn(
-          //   "text-sm [&>p]:my-0 [&>ul]:my-2 [&>ol]:my-2",
-          //   "[&_pre]:bg-transparent [&_pre]:p-0",
-          //   "[&_code.language-python]:text-inherit",
-          //   isAI
-          //     ? "[&_.language-python]:bg-background/50"
-          //     : "[&_.language-python]:bg-primary-foreground/10"
-          // )}
+        // className={cn(
+        //   "text-sm [&>p]:my-0 [&>ul]:my-2 [&>ol]:my-2",
+        //   "[&_pre]:bg-transparent [&_pre]:p-0",
+        //   "[&_code.language-python]:text-inherit",
+        //   isAI
+        //     ? "[&_.language-python]:bg-background/50"
+        //     : "[&_.language-python]:bg-primary-foreground/10"
+        // )}
         />
         <time className="text-xs opacity-70 mt-1 block">
           {new Date(message.timestamp).toLocaleTimeString()}
