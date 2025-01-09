@@ -1,0 +1,2 @@
+thats working cool now the added alarm or the add tasks or fetched from the backend that are displayed right give a button to delete the alarm and the task. in the alarm a delete button should be displayed when I hover on the card below the toggle button.
+in the tasks list when I hover on any card a delete button is shown for the parent task and also for the child task and a conformation dialog box also like are you sure want to delete the task like that
