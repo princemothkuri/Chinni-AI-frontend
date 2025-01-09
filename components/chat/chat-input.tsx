@@ -117,7 +117,6 @@ export function ChatInput({
 
   const speak = (text: string) => {
     text = textPreProcessing(text);
-    console.log(text);
 
     const chunks = text.match(/[^.!?]+[.!?]+[\])'"`’”]*|.+/g) || [];
 

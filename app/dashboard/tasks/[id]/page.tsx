@@ -66,7 +66,7 @@ export default function TaskDetailsPage({
   const fetchTaskApi = async (id: string) => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/tasks/${id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${id}`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -142,14 +142,13 @@ export default function TaskDetailsPage({
     setLoading(true);
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/api/tasks/${task._id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${task._id}`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
         }
       );
-      console.log(response);
 
       if (response?.status === 200) {
         dispatch(deleteTask({ id: task._id }));
@@ -186,14 +185,13 @@ export default function TaskDetailsPage({
     setLoading(true);
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/api/tasks/${params.id}/subtasks/${subTaskId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${params.id}/subtasks/${subTaskId}`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
         }
       );
-      console.log(response);
 
       if (response?.status === 200) {
         //   dispatch(deleteTask({ id: subtask._id }));
@@ -380,7 +378,7 @@ export default function TaskDetailsPage({
     setLoading(true);
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/api/tasks/${params.id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${params.id}`,
         editedTaskAfterDateFormat,
         {
           headers: {

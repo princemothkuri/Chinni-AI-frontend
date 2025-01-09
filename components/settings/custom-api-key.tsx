@@ -51,7 +51,7 @@ export function CustomApiKey() {
         setLoading(true);
 
         try {
-            const response = await axios.post("http://127.0.0.1:8000/settings/set-api-key", { OpenAI_Api_Key: trimmedApiKey },
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/settings/set-api-key`, { OpenAI_Api_Key: trimmedApiKey },
                 {
                     headers: {
                         Authorization: `Bearer ${authToken}`,
@@ -84,7 +84,7 @@ export function CustomApiKey() {
     const fetchApiKey = async () => {
         if (!isLoggedIn) return;
         try {
-            const response = await axios.get("http://127.0.0.1:8000/settings/get-api-key", {
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/settings/get-api-key`, {
                 headers: {
                     Authorization: `Bearer ${authToken}`,
                 },

@@ -47,20 +47,13 @@ const SubTaskComponent = ({ parentId, subtask, handleDeleteSubTask }: SubTaskPro
     (state: RootState) => state.chinniMain
   );
 
-
-
-  useEffect(() => {
-    console.log(subtask);
-  }, []);
-
   const handleStatusChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!isLoggedIn) return;
     try {
       setIsChecked(e.target.checked);
-      console.log(subtask._id);
 
       const response = await axios.put(
-        `http://127.0.0.1:8000/api/tasks/${parentId}/subtasks/${subtask._id}/status`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${parentId}/subtasks/${subtask._id}/status`,
         { new_status: e.target.checked ? "completed" : "pending" },
         {
           headers: {
@@ -69,7 +62,6 @@ const SubTaskComponent = ({ parentId, subtask, handleDeleteSubTask }: SubTaskPro
         }
       );
 
-      console.log(response);
     } catch (error) {
       console.log(error);
     }

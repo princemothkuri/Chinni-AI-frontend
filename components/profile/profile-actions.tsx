@@ -40,7 +40,7 @@ export function ProfileActions() {
   const handleDeleteAccount = async () => {
     if (!isLoggedIn) return;
     try {
-      const response = await axios.delete("http://127.0.0.1:8000/settings/delete-account", {
+      const response = await axios.delete(`${process.env.NEXT_PUBLIC_BACKEND_URL}/settings/delete-account`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },

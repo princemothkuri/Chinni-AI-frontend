@@ -71,7 +71,7 @@ export function PasswordResetForm({ email }: PasswordResetFormProps) {
 
     try {
       const confirmReset = await axios.post(
-        "http://127.0.0.1:8000/auth/reset-password/confirm",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/reset-password/confirm`,
         {
           email: email,
           new_password: formData.password,

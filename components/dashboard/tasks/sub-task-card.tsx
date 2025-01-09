@@ -66,10 +66,9 @@ const SubTaskCard = ({ parentTaskId, subtask, isHovered }: SubTaskProps) => {
     if (!isLoggedIn) return;
     try {
       setIsChecked(e.target.checked);
-      console.log(subtask._id);
 
       const response = await axios.put(
-        `http://127.0.0.1:8000/api/tasks/${parentTaskId}/subtasks/${subtask._id}/status`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${parentTaskId}/subtasks/${subtask._id}/status`,
         { new_status: e.target.checked ? "completed" : "pending" },
         {
           headers: {
@@ -78,7 +77,6 @@ const SubTaskCard = ({ parentTaskId, subtask, isHovered }: SubTaskProps) => {
         }
       );
 
-      console.log(response);
     } catch (error) {
       console.log(error);
     }

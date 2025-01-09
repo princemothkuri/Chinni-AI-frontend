@@ -38,7 +38,7 @@ export function AlarmsList({ searchQuery, selectedTags }: AlarmsListProps) {
   const fetchAllAlarmsApi = async () => {
     if (!isLoggedIn) return;
     try {
-      const response = await axios.get("http://127.0.0.1:8000/api/alarms", {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/alarms`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },

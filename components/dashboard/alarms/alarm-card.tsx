@@ -67,7 +67,7 @@ export function AlarmCard({ alarm }: AlarmCardProps) {
     setToggleAlarmLoading(true);
     try {
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/alarms/${alarm._id}/toggle`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/alarms/${alarm._id}/toggle`,
         {},
         {
           headers: {
@@ -75,8 +75,6 @@ export function AlarmCard({ alarm }: AlarmCardProps) {
           },
         }
       );
-
-      console.log(response);
 
       if (response?.status === 200) {
         toast({
@@ -114,7 +112,7 @@ export function AlarmCard({ alarm }: AlarmCardProps) {
     try {
       setLoading(true);
       const response = await axios.put(
-        `http://127.0.0.1:8000/api/alarms/${alarm._id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/alarms/${alarm._id}`,
         {
           alarm_time: editedAlarm.alarm_time,
           description: editedAlarm.description,
@@ -127,8 +125,6 @@ export function AlarmCard({ alarm }: AlarmCardProps) {
           },
         }
       );
-
-      console.log(response);
 
       if (response?.status === 200) {
         toast({
@@ -170,14 +166,13 @@ export function AlarmCard({ alarm }: AlarmCardProps) {
     if (!isLoggedIn) return;
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/api/alarms/${alarm._id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/alarms/${alarm._id}`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
         }
       );
-      console.log(response);
 
       if (response?.status === 200) {
         dispatch(deleteAlarm({ id: alarm._id }));

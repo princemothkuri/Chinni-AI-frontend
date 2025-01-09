@@ -29,9 +29,6 @@ const GreenTickCheckbox = React.forwardRef<
                 className="sr-only"
                 ref={ref}
                 {...props}
-                onClick={() => {
-                  console.log("clicked: ", props.checked);
-                }}
               />
               <motion.div
                 className={`w-6 h-6 border-2 rounded-md border-gray-300 bg-white`}

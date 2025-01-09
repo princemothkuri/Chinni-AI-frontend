@@ -22,7 +22,10 @@ export default function ChatLayout({
     return (
       <>
         {children}
-        <Footer />
+        <div className="w-full backdrop-blur-sm">
+
+          <Footer />
+        </div>
       </>
     );
   }

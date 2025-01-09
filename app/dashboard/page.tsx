@@ -41,7 +41,9 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen pt-16 relative">
-      <ParticlesBackground />
+      <div className="absolute inset-0 z-[-1]">
+        <ParticlesBackground />
+      </div>
       <div className="container mx-auto px-4 py-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

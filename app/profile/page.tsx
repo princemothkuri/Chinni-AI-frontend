@@ -6,6 +6,7 @@ import { ProfileActions } from "@/components/profile/profile-actions";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store";
+import { ParticlesBackground } from "@/components/shared/particles-background";
 
 export default function ProfilePage() {
   const { firstName, lastName, email, username } = useSelector(
@@ -13,6 +14,9 @@ export default function ProfilePage() {
   );
   return (
     <div className="min-h-screen pt-16 bg-gradient-to-br from-background via-secondary/20 to-background">
+      <div className="absolute inset-0 z-[-1]">
+        <ParticlesBackground />
+      </div>
       <div className="container mx-auto px-4 py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

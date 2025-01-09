@@ -81,7 +81,7 @@ export function TasksList({ searchQuery, selectedTags }: TasksListProps) {
   const fetchUserTasksApi = async () => {
     if (!isLoggedIn) return;
     try {
-      const response = await axios.get("http://127.0.0.1:8000/api/tasks", {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
@@ -121,8 +121,6 @@ export function TasksList({ searchQuery, selectedTags }: TasksListProps) {
 
       const formattedTasks = transformTasks(rawData);
       dispatch(setAllFetchedTasks(formattedTasks));
-      // setTasks(formattedTasks);
-      console.log(response);
     } catch (error) {
       console.log(error);
     }

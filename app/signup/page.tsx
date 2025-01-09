@@ -19,7 +19,7 @@ export default function SignUpPage() {
     setIsLoading(true);
     try {
       // Make the POST request to the backend
-      const response = await axios.post("http://127.0.0.1:8000/auth/register", {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/register`, {
         firstName: data.firstName,
         lastName: data.lastName,
         username: data.username,
@@ -28,7 +28,6 @@ export default function SignUpPage() {
       });
 
       if (response.data.status === 201) {
-        console.log(response.data.message);
         toast({
           title: "Success",
           description: "User registered successfully.",

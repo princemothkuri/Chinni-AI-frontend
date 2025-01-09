@@ -20,7 +20,9 @@ export default function PasswordResetPage() {
 
   return (
     <main className="min-h-[calc(100vh-4rem)] mt-16 relative flex items-center justify-center p-4">
-      <ParticlesBackground />
+      <div className="absolute inset-0 z-[-1]">
+        <ParticlesBackground />
+      </div>
       <div className="relative z-10 w-full max-w-md">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -34,7 +34,7 @@ export function InteractiveDemo() {
     setMessage("");
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/ai/demo-chat", {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/ai/demo-chat`, {
         message: userMessage.message,
       });
 
@@ -102,8 +102,8 @@ export function InteractiveDemo() {
                     >
                       <div
                         className={`p-3 rounded-lg ${chat.isUser
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-secondary text-secondary-foreground"
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-secondary text-secondary-foreground"
                           } max-w-xs`}
                       >
                         <MarkdownRenderer content={chat.message} />

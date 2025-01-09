@@ -69,7 +69,7 @@ export function PasswordResetVerification({
 
     try {
       const verifyReset = await axios.post(
-        "http://127.0.0.1:8000/auth/reset-password/verify",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/reset-password/verify`,
         {
           email: formData.email,
           username: formData.username,

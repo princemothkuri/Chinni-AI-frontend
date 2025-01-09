@@ -38,10 +38,11 @@ const LoginPage = () => {
       setIsLoading(true);
 
       // Send login credentials to the backend
-      const response = await axios.post("http://127.0.0.1:8000/auth/login", {
-        usernameOrEmail: data.identifier, // Ensure this matches your input field names
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/login`, {
+        usernameOrEmail: data.identifier,
         password: data.password,
       });
+
 
       if (response.data?.status === 200) {
         if (response.data?.token) {
@@ -72,10 +73,8 @@ const LoginPage = () => {
             router.push("/chat"); // Redirect to chat page
           }, 1000);
 
-          // console.log(response.data.message); // "Login successful"
         }
       } else {
-        console.log(response.data.error);
         toast({
           variant: "destructive",
           title: "Error",
@@ -85,7 +84,6 @@ const LoginPage = () => {
       }
     } catch (error: any) {
       console.log("Error:", error);
-
       if (error.response.status === 401) {
         toast({
           variant: "destructive",

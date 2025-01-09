@@ -74,7 +74,6 @@ export function TaskCard({ task, onViewDetails }: TaskCardProps) {
 
   useEffect(() => {
     setIsChecked(task?.status === "completed");
-    console.log(task);
   }, [task]);
 
   const handleTaskStatus = async (e: any) => {
@@ -82,7 +81,7 @@ export function TaskCard({ task, onViewDetails }: TaskCardProps) {
     setIsChecked(e.target.checked);
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/api/tasks/${task?._id}/status`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${task?._id}/status`,
         { new_status: e.target.checked ? "completed" : "pending" },
         {
           headers: {
@@ -91,7 +90,6 @@ export function TaskCard({ task, onViewDetails }: TaskCardProps) {
         }
       );
 
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -101,14 +99,13 @@ export function TaskCard({ task, onViewDetails }: TaskCardProps) {
     if (!isLoggedIn) return;
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/api/tasks/${task._id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${task._id}`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
         }
       );
-      console.log(response);
 
       if (response?.status === 200) {
         dispatch(deleteTask({ id: task._id }));

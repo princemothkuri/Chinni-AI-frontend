@@ -42,7 +42,7 @@ export function ProfileCard({ initialProfileData }: ProfileCardProps) {
     setLoading(true);
 
     try {
-      const response = await axios.put("http://127.0.0.1:8000/settings/update-profile", profileData,
+      const response = await axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/settings/update-profile`, profileData,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -99,7 +99,7 @@ export function ProfileCard({ initialProfileData }: ProfileCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="space-y-6 p-4 border rounded-lg shadow-md"
+      className="space-y-6 p-4 border rounded-lg shadow-md bg-card/50 backdrop-blur-sm"
     >
       <div className="space-y-2">
         <label htmlFor="firstName" className="block text-sm font-medium text-gray-500">

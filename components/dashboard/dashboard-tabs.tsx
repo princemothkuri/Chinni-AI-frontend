@@ -70,7 +70,7 @@ export function DashboardTabs({
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/alarms",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/alarms`,
         {
           alarm_time: data.time,
           description: data.description,
@@ -83,8 +83,6 @@ export function DashboardTabs({
           },
         }
       );
-
-      // console.log("Added alarm:", response);
 
       if (response?.status === 200) {
         dispatch(appendAlarm(response?.data?.newAlarm));
@@ -150,7 +148,7 @@ export function DashboardTabs({
       }
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/tasks",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks`,
         data,
         {
           headers: {
@@ -158,7 +156,6 @@ export function DashboardTabs({
           },
         }
       );
-      console.log(response);
       if (response?.status === 200) {
         const transformTask = (task: any): Task => {
           const calculateHoursRemaining = (dueDate: string): number => {
