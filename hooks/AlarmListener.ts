@@ -27,10 +27,7 @@ export const useAlarmListener = (
 
             notification.onclick = () => {
               // alert(bodyContent);
-              window.open(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/dashboard`,
-                "_blank"
-              );
+              window.open(`https://chinni-ai.vercel.app/dashboard`, "_blank");
             };
           }
         }
