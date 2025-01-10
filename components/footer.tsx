@@ -1,11 +1,11 @@
-import { Github, Twitter, Linkedin, Brain } from "lucide-react";
+import { Github, Twitter, Linkedin, Brain, Mail } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/princemothkuri", label: "GitHub" },
+    { icon: Mail, href: "mailto:princemothkuri@gmail.com", label: "Mail" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/mothkuri-prince-ba689922a", label: "LinkedIn" },
   ];
 
   return (
@@ -82,6 +82,8 @@ export function Footer() {
                   key={label}
                   href={href}
                   className="text-muted-foreground hover:text-primary transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Icon className="w-6 h-6" />
                   <span className="sr-only">{label}</span>
