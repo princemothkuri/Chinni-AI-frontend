@@ -9,11 +9,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { chinniMainSliceReset } from "@/lib/redux/features/chinniMain/chinniMainSlice";
+import { dashboardSliceReset } from "@/lib/redux/features/dashboard/dashboardSlice";
 import { RootState } from "@/lib/redux/store";
 import { User, LogOut, Settings } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export function UserMenu() {
   const router = useRouter();
@@ -26,6 +26,7 @@ export function UserMenu() {
 
   const handleLogout = () => {
     dispatch(chinniMainSliceReset());
+    dispatch(dashboardSliceReset());
     // Add logout logic here
     router.push("/login");
   };
