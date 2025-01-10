@@ -9,7 +9,9 @@ const useSocketManager = (
   useEffect(() => {
     if (!isLoggedIn || !authToken) return;
 
-    const ws = new WebSocket(`ws://localhost:8000/ws?authToken=${authToken}`);
+    const ws = new WebSocket(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/ws?authToken=${authToken}`
+    );
     setSocket(ws);
 
     ws.onopen = () => {
