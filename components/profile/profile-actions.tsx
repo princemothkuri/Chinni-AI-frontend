@@ -46,7 +46,7 @@ export function ProfileActions() {
         },
       });
 
-      if (response.status === 200) {
+      if (response?.status === 200) {
         router.push("/");
         setTimeout(() => {
           dispatch(chinniMainSliceReset());

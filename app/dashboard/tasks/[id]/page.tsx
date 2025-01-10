@@ -386,7 +386,7 @@ export default function TaskDetailsPage({
           },
         }
       );
-      if (response.status === 200) {
+      if (response?.status === 200) {
         setTask(editedTaskAfterDateFormat);
         fetchTaskApi(params.id);
         setIsEditing(false);

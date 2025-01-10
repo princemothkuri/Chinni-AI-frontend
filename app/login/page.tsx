@@ -84,12 +84,12 @@ const LoginPage = () => {
       }
     } catch (error: any) {
       console.log("Error:", error);
-      if (error.response.status === 401) {
+      if (error?.response?.status === 401) {
         toast({
           variant: "destructive",
           title: "Error",
           description:
-            error.response?.data?.detail ||
+            error?.response?.data?.detail ||
             "Invalid credentials. Please try again.",
         });
       } else {
@@ -97,7 +97,7 @@ const LoginPage = () => {
           variant: "destructive",
           title: "Error",
           description:
-            error.response?.data?.error || "An error occurred during login.",
+            error?.response?.data?.error || "An error occurred during login.",
         });
       }
       setIsLoading(false);

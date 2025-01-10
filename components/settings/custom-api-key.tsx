@@ -57,7 +57,7 @@ export function CustomApiKey() {
                         Authorization: `Bearer ${authToken}`,
                     },
                 });
-            if (response.status === 200) {
+            if (response?.status === 200) {
                 setShowApiKey(false);
                 toast({
                     title: "Success",
@@ -89,7 +89,7 @@ export function CustomApiKey() {
                     Authorization: `Bearer ${authToken}`,
                 },
             });
-            if (response.status === 200) {
+            if (response?.status === 200) {
                 setApiKey(response.data.api_key);
             }
         } catch (error) {

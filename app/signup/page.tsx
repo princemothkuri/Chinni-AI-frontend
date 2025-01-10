@@ -42,12 +42,12 @@ export default function SignUpPage() {
         setIsLoading(false);
       }
     } catch (error: any) {
-      if (error.response) {
-        console.error(error.response.data.message);
+      if (error?.response) {
+        console.error(error?.response.data.message);
         toast({
           variant: "destructive",
           title: "Error",
-          description: error.response.data.message,
+          description: error?.response.data.message,
         });
       } else {
         // Handle network or other unexpected errors
