@@ -73,7 +73,7 @@ export function FeatureShowcase() {
             >
               <Card className="relative bg-card/50 backdrop-blur-sm border-2 hover:border-primary/50 transition-all duration-300">
                 {feature.isUpcoming && (
-                  <Badge className="absolute top-6 right-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white">
+                  <Badge className="absolute top-1 right-0 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white" style={{ fontSize: "0.6rem", padding: "2px 5px", borderRadius: "20px 0px 0px 20px" }}>
                     Upcoming
                   </Badge>
                 )}
