@@ -10,7 +10,7 @@ const useSocketManager = (
     if (!isLoggedIn || !authToken) return;
 
     const ws = new WebSocket(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/ws?authToken=${authToken}`
+      `wss://chinni-ai-backend.onrender.com/ws?authToken=${authToken}`
     );
     setSocket(ws);
 
