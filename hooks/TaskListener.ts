@@ -37,7 +37,10 @@ export const useTaskListener = (socket: WebSocket | null) => {
 
             notification.onclick = () => {
               // alert(fullContent);
-              window.open("http://localhost:3000/dashboard", "_blank");
+              window.open(
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/dashboard`,
+                "_blank"
+              );
             };
           }
         }
